@@ -1,15 +1,14 @@
 {
   "name": "@1px.one/react-hooks",
   "version": "1.0.0",
-  "description": "Helpfull react hooks",
+  "description": "Helpful react hooks",
   "keywords": [
-    "react",
     "react",
     "hook",
     "hooks",
     "react-hooks"
   ],
-  "author": "Artemiy Vereshchinskiy <a.vereshchinskiy@netris.ru>",
+  "author": "Artemiy Vereshchinskiy <artemiy.vereshchinskiy@gmail.com>",
   "homepage": "https://github.com/1pxone/react-hooks#readme",
   "license": "ISC",
   "main": "lib/react-hooks.js",
@@ -32,5 +31,19 @@
   },
   "bugs": {
     "url": "https://github.com/1pxone/react-hooks/issues"
+  },
+  "dependencies": {
+    "resize-observer-polyfill": "1.5.1"
+  },
+  "peerDependencies": {
+    "react": ">=16.9.0",
+    "react-dom": ">=16.9.0"
+  },
+  "devDependencies": {
+    "@types/react": "16.x",
+    "@types/react-dom": "16.x",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "typescript": "3.7.5"
   }
 }

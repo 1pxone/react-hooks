@@ -1,0 +1,15 @@
+tasks
+node_modules
+__coverage__
+.npmrc
+.idea
+.gitignore
+.prettierrc
+gulpfile.js
+tslint.json
+tsconfig.json
+jest.config.js
+babel.config.js
+tsconfig.src.json
+commitlint.config.js
+yarn.lock

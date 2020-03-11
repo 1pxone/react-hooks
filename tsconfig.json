@@ -1,0 +1,28 @@
+{
+   "compilerOptions": {
+      "lib": [
+         "es5",
+         "es6",
+         "dom"
+      ],
+      "noImplicitAny": true,
+      "strict": true,
+      "strictNullChecks": true,
+      "strictFunctionTypes": true,
+      "strictPropertyInitialization": true,
+      "strictBindCallApply": true,
+      "resolveJsonModule": true,
+      "jsx": "react",
+      "target": "es5",
+      "module": "commonjs",
+      "esModuleInterop": true,
+      "moduleResolution": "node",
+      "outDir": "./build",
+      "emitDecoratorMetadata": true,
+      "experimentalDecorators": true,
+      "downlevelIteration": true,
+      "sourceMap": true,
+      "noUnusedLocals": true,
+      "typeRoots": ["./node_modules/@types", "./src/interfaces"]
+   }
+}

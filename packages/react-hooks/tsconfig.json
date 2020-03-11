@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "declaration": true,
+    "sourceRoot": "src",
+    "outDir": "build",
+    "jsx": "react",
+    "noImplicitAny": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictPropertyInitialization": true,
+    "strictBindCallApply": true,
+    "downlevelIteration": true,
+    "noUnusedLocals": true,
+    "moduleResolution": "node",
+    "removeComments": true,
+    "emitDecoratorMetadata": false,
+    "experimentalDecorators": false,
+    "noLib": false,
+    "lib": ["dom", "es5", "es2015"],
+    "typeRoots": ["node_modules/@types/jest"]
+  },
+  "exclude": [
+    "node_modules",
+    "build",
+    "index.d.ts"
+  ]
+}

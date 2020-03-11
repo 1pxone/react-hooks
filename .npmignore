@@ -1,0 +1,11 @@
+/src
+.dockerignore
+.gitlab-ci.yml
+.gitignore
+.npmrc
+.yarnrc
+Dockerfile
+Jenkinsfile
+babel.config.js
+docker-compose.yml
+yarn.lock
