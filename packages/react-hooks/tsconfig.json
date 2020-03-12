@@ -26,7 +26,7 @@
   },
   "exclude": [
     "node_modules",
-    "build",
+    "lib",
     "index.d.ts"
   ]
 }

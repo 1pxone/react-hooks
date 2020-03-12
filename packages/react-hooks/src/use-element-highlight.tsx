@@ -15,7 +15,7 @@ export function useElementFocusHighLight<T extends HTMLElement, P extends {}>({
 }): [T | undefined | null, Dispatch<SetStateAction<T | undefined | null>>, React.ElementType] {
     const [currentEl, setEl] = useState<T | undefined | null>(null);
 
-    let Portal = (props: P) => <div />;
+    let Portal = (props: P) => null;
     if (currentEl) {
         const rect = currentEl.getBoundingClientRect();
 
@@ -60,6 +60,8 @@ export function useElementFocusHighLight<T extends HTMLElement, P extends {}>({
                     top: 0
                 };
                 return <div {...props} style={wrapperDivStyle} />;
+            } else {
+                return null;
             }
         };
 
@@ -76,6 +78,7 @@ export function useElementFocusHighLight<T extends HTMLElement, P extends {}>({
             );
         };
 
+        // @ts-ignore
         Portal = (props: P) => createPortal(backdropDivs(props), document.body);
     }
 

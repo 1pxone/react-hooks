@@ -11,5 +11,4 @@ tsconfig.json
 jest.config.js
 babel.config.js
 tsconfig.src.json
-commitlint.config.js
 yarn.lock
