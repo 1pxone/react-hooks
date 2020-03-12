@@ -1,6 +1,6 @@
 {
   "name": "@1px.one/react-hooks",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Helpful react hooks",
   "keywords": [
     "react",
@@ -41,11 +41,6 @@
     "react-dom": ">=16.9.0"
   },
   "devDependencies": {
-    "react": "^16.13.0",
-    "react-dom": "^16.13.0",
-    "typescript": "^3.8.3",
-    "@types/react": "^16.9.23",
-    "@types/react-dom": "^16.9.5",
     "@babel/cli": "^7.6.2",
     "@babel/core": "^7.6.2",
     "@babel/plugin-proposal-class-properties": "^7.5.5",
@@ -56,15 +51,20 @@
     "@babel/plugin-transform-react-display-name": "^7.2.0",
     "@babel/plugin-transform-runtime": "^7.6.0",
     "@babel/plugin-transform-typescript": "^7.6.0",
-    "babel-plugin-transform-object-assign": "^6.22.0",
     "@babel/preset-env": "^7.6.0",
     "@babel/preset-react": "^7.0.0",
+    "@types/react": "^16.9.23",
+    "@types/react-dom": "^16.9.5",
     "babel-jest": "^24.9.0",
     "babel-plugin-add-react-displayname": "^0.0.5",
     "babel-plugin-styled-components": "^1.10.6",
+    "babel-plugin-transform-object-assign": "^6.22.0",
     "babel-plugin-typescript-to-proptypes": "^1.0.0",
     "npx": "^10.2.2",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
     "tsc": "^1.20150623.0",
-    "tslint": "^5.20.0"
+    "tslint": "^5.20.0",
+    "typescript": "^3.8.3"
   }
 }
