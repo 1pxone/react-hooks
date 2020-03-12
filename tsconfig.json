@@ -17,7 +17,7 @@
       "module": "commonjs",
       "esModuleInterop": true,
       "moduleResolution": "node",
-      "outDir": "./build",
+      "outDir": "./lib",
       "emitDecoratorMetadata": true,
       "experimentalDecorators": true,
       "downlevelIteration": true,

@@ -11,7 +11,7 @@
   "author": "Artemiy Vereshchinskiy <artemiy.vereshchinskiy@gmail.com>",
   "homepage": "https://github.com/1pxone/react-hooks#readme",
   "license": "ISC",
-  "main": "lib/react-hooks.js",
+  "main": "lib/index.d.ts",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
@@ -27,6 +27,7 @@
     "url": "git+https://github.com/1pxone/react-hooks.git"
   },
   "scripts": {
+    "build": "npx tsc --project tsconfig.src.json && npx babel ./src --out-dir lib --extensions \".ts,.tsx\" --source-maps --ignore src/__mocks__",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "bugs": {
@@ -40,10 +41,25 @@
     "react-dom": ">=16.9.0"
   },
   "devDependencies": {
-    "@types/react": "16.x",
-    "@types/react-dom": "16.x",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "typescript": "3.7.5"
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
+    "typescript": "^3.8.3",
+    "@types/react": "^16.9.23",
+    "@types/react-dom": "^16.9.5",
+    "@babel/cli": "^7.6.2",
+    "@babel/core": "^7.6.2",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-proposal-decorators": "^7.6.0",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.4.4",
+    "@babel/plugin-proposal-optional-chaining": "^7.6.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/plugin-transform-react-display-name": "^7.2.0",
+    "@babel/plugin-transform-runtime": "^7.6.0",
+    "@babel/plugin-transform-typescript": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
+    "@babel/preset-react": "^7.0.0",
+    "npx": "^10.2.2",
+    "tsc": "^1.20150623.0",
+    "tslint": "^5.20.0"
   }
 }

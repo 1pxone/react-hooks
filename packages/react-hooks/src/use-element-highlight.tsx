@@ -12,10 +12,10 @@ export function useElementFocusHighLight<T extends HTMLElement, P extends {}>({
     backdropColor?: string;
     zIndex?: number;
     overlay?: boolean;
-}): [T | undefined, Dispatch<SetStateAction<T | undefined |  null>>, React.ElementType] {
-    const [currentEl, setEl] = useState<T | undefined |  null>(null);
+}): [T | undefined | null, Dispatch<SetStateAction<T | undefined | null>>, React.ElementType] {
+    const [currentEl, setEl] = useState<T | undefined | null>(null);
 
-    let Portal = (props: P) => null;
+    let Portal = (props: P) => <div />;
     if (currentEl) {
         const rect = currentEl.getBoundingClientRect();
 

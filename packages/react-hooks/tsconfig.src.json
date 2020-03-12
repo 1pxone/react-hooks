@@ -6,7 +6,7 @@
     "sourceMap": false,
     "declaration": true,
     "declarationMap": false,
-    "outDir": "build",
+    "outDir": "lib",
     "rootDir": "src",
     "jsx": "react",
     "noImplicitAny": true,
@@ -32,7 +32,7 @@
     "src/**/*.spec.tsx",
     "src/**/*.spec.ts",
     "dist",
-    "build",
+    "lib",
     "tasks",
     "index.d.ts"
   ]

@@ -14,7 +14,9 @@ export function useDelay(callback: () => void, delay: number) {
     }, [timeout.current]);
 
     useEffect(() => {
-        return () => timeout.current && clearTimeout(timeout.current);
+        return () => {
+            timeout.current && clearTimeout(timeout.current);
+        }
     }, [timeout]);
 
     return setLastActionTimestamp;

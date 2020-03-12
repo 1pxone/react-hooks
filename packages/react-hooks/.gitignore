@@ -1,6 +1,6 @@
 .idea
-build
 node_modules
+lib
 __coverage__
 index.d.ts
 npm-debug.log

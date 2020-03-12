@@ -6,9 +6,9 @@ __coverage__
 .gitignore
 .prettierrc
 jest.config.js
+src
 babel.config.js
 tslint.json
 tsconfig.json
 tsconfig.src.json
-commitlint.config.js
 yarn.lock

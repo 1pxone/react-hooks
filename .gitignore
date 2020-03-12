@@ -2,7 +2,6 @@
 .vscode/
 node_modules/
 **/__coverage__
-build/
 tmp/
 temp/
 dist/

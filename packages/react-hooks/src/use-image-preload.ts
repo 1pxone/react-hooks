@@ -7,10 +7,10 @@ export function useImagePreload(
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
     const [source, setSource] = useState(placeholder);
-    const handleLoad = e => {
+    const handleLoad = () => {
         setLoading(false);
     };
-    const handleError = e => {
+    const handleError = () => {
         setLoading(false);
         setError(true);
     };

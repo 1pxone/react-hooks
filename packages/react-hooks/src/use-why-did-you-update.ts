@@ -3,11 +3,11 @@ import { useEffect, useRef } from 'react';
 export const getObjectsDiff = <T extends {}>(
     from: Partial<T> = {},
     to: Partial<T> = {},
-    comparator?: <key extends keyof T>(from: T[key], to: T[key]) => boolean
-): Partial<{ [key in keyof T]: { from: T[key]; to: T[key] } }> => {
+    comparator?: <key extends keyof T>(from: T[key] | undefined, to: T[key] | undefined) => boolean
+): Partial<{ [key in keyof T]: { from: T[key] | undefined; to: T[key] | undefined} }> => {
     const allKeys = Object.keys({ ...from, ...to }) as (keyof T)[];
     // Use this object to keep track of changed props
-    const changesObj: Partial<{ [key in keyof T]: { from: T[key]; to: T[key] } }> = {};
+    const changesObj: Partial<{ [key in keyof T]: { from: T[key] | undefined; to: T[key] | undefined } }> = {};
     // Iterate through keys
     allKeys.forEach(key => {
         // If previous is different from current
