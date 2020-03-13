@@ -1,7 +1,70 @@
 {
-  "name": "root",
-  "private": true,
+  "name": "@1px.one/react-hooks",
+  "version": "1.0.1",
+  "description": "Helpful react hooks",
+  "keywords": [
+    "react",
+    "hook",
+    "hooks",
+    "react-hooks"
+  ],
+  "author": "Artemiy Vereshchinskiy <artemiy.vereshchinskiy@gmail.com>",
+  "homepage": "https://github.com/1pxone/react-hooks#readme",
+  "license": "ISC",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1pxone/react-hooks.git"
+  },
+  "scripts": {
+    "build": "npx tsc && npx babel ./src --out-dir lib",
+    "test": "echo \"No tests to execute\" && exit 0"
+  },
+  "bugs": {
+    "url": "https://github.com/1pxone/react-hooks/issues"
+  },
+  "dependencies": {
+    "resize-observer-polyfill": "1.5.1"
+  },
+  "peerDependencies": {
+    "react": ">=16.9.0",
+    "react-dom": ">=16.9.0"
+  },
   "devDependencies": {
-    "lerna": "^3.20.2"
+    "@babel/cli": "^7.6.2",
+    "@babel/core": "^7.6.2",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-proposal-decorators": "^7.6.0",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.4.4",
+    "@babel/plugin-proposal-optional-chaining": "^7.6.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/plugin-transform-react-display-name": "^7.2.0",
+    "@babel/plugin-transform-runtime": "^7.6.0",
+    "@babel/plugin-transform-typescript": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
+    "@babel/preset-react": "^7.0.0",
+    "@types/react": "^16.9.23",
+    "@types/react-dom": "^16.9.5",
+    "babel-jest": "^24.9.0",
+    "babel-plugin-add-react-displayname": "^0.0.5",
+    "babel-plugin-transform-object-assign": "^6.22.0",
+    "babel-plugin-typescript-to-proptypes": "^1.0.0",
+    "npx": "^10.2.2",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
+    "tsc": "^1.20150623.0",
+    "tslint": "^5.20.0",
+    "typescript": "^3.8.3"
   }
 }
