@@ -1,10 +1,7 @@
-.idea/
-.vscode/
-node_modules/
-**/__coverage__
-tmp/
-temp/
-dist/
-db/.tern-port
-yarn-error.log
-.tern-port
+.idea
+node_modules
+/lib
+*.d.ts
+__coverage__
+index.d.ts
+npm-debug.log
