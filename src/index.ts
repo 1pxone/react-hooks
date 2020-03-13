@@ -11,6 +11,7 @@ import { usePageVisibility } from './use-page-visibility';
 import { useResizeObserver } from './use-resize-observer';
 import { useThrottle } from './use-throttle';
 import { useWhyDidYouUpdate } from './use-why-did-you-update';
+import { useObservedSize } from './use-resize-observer';
 
 export {
     useClipboard,
@@ -25,5 +26,6 @@ export {
     usePageVisibility,
     useResizeObserver,
     useThrottle,
+    useObservedSize,
     useWhyDidYouUpdate
 };

@@ -2,23 +2,24 @@
 
 Useful React Hooks
 
-* [`useClipboard`](#clipboard-hook) - Hook to copy to clipboard
-* [`useDebounce`](#debounce-hook) - Hook to make debounce
-* [`useDelay`](#delay-hook) - Hook to make a delay
-* [`useElementHighlight`](#element-highlight-hook) - Hook to highlight element 
-* [`useFullscreen`](#fullscreen-hook) - Hook to handle a click outside an element
-* [`useImagePreload`](#image-preload-hook) - Hook to make a GraphQL request
+* [`useClipboard`](#clipboard-hook) - Hook to
+* [`useDebounce`](#debounce-hook) - Hook to
+* [`useDelay`](#delay-hook) - Hook to
+* [`useElementHighlight`](#element-highlight-hook) - Hook to
+* [`useFullscreen`](#fullscreen-hook) - Hook to
+* [`useImagePreload`](#image-preload-hook) - Hook to
 
-* [`useInterval`](#interval-hook) - Hook to connect to Hapijs NES
-* [`useLocalStorage`](#local-storage-hook) - Hook to local storage
-* [`useNetworkInfo`](#network-info-hook) - Hook to Cookies
-* [`usePageVisibility`](#page-visibility-hook) - Hook for binding to hover of an element
-* [`useResizeObserver`](#resize-observer-hook) - Hook for binding to an hander to DOM event
-* [`useThrottle`](#throttle-hook) - Hook to set a favicon
-* [`useWhyDidYouUpdate`](#debug-hook) - Hook to manipulate the page title
+* [`useInterval`](#interval-hook) - Hook to
+* [`useLocalStorage`](#local-storage-hook) - Hook to
+* [`useNetworkInfo`](#network-info-hook) - Hook to
+* [`usePageVisibility`](#page-visibility-hook) - Hook to
+* [`useResizeObserver`](#resize-observer-hook) - Hook to
+* [`useObservedSize`](#resize-observer-hook) - Hook to
+* [`useThrottle`](#throttle-hook) - Hook to
+* [`useWhyDidYouUpdate`](#debug-hook) - Hook to
 
-* [`useKeypress`](#keypress-hook) - Hook to Keypress
-* [`useKeypressed`](#key-pressed-hook) - Hook to fire a method when the keydown is triggered
+* [`useKeypress`](#keypress-hook) - Hook to
+* [`useKeypressed`](#key-pressed-hook) - Hook to
 
 ## Clipboard hook
 
@@ -66,6 +67,11 @@ Useful React Hooks
 ```
 
 ## Resize Observer Hook
+
+```javascript
+```
+
+## Observed Size Hook
 
 ```javascript
 ```
