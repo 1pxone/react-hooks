@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef } from 'react';
 
-export function useDelay(callback: () => void, delay: number) {
+export const useDelay = (callback: () => void, delay: number) => {
     const timeout = useRef(0);
     const setLastActionTimestamp = useCallback(() => {
         if (timeout.current) {
@@ -15,9 +15,11 @@ export function useDelay(callback: () => void, delay: number) {
 
     useEffect(() => {
         return () => {
-            timeout.current && clearTimeout(timeout.current);
-        }
+            if (timeout.current) {
+                clearTimeout(timeout.current);
+            }
+        };
     }, [timeout]);
 
     return setLastActionTimestamp;
-}
+};

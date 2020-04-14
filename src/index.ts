@@ -10,8 +10,9 @@ import { useNetworkInfo } from './use-network-info';
 import { usePageVisibility } from './use-page-visibility';
 import { useResizeObserver } from './use-resize-observer';
 import { useThrottle } from './use-throttle';
-import { useWhyDidYouUpdate } from './use-why-did-you-update';
+import { useWhyDidYouUpdate, getObjectsDiff } from './use-why-did-you-update';
 import { useObservedSize } from './use-resize-observer';
+import { useDisclosure } from './use-disclosure';
 
 export {
     useClipboard,
@@ -27,5 +28,7 @@ export {
     useResizeObserver,
     useThrottle,
     useObservedSize,
-    useWhyDidYouUpdate
+    useWhyDidYouUpdate,
+    getObjectsDiff,
+    useDisclosure
 };
