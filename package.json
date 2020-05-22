@@ -1,6 +1,6 @@
 {
   "name": "@1px.one/react-hooks",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Helpful react hooks",
   "keywords": [
     "react",
@@ -35,7 +35,7 @@
     "url": "https://github.com/1pxone/react-hooks/issues"
   },
   "dependencies": {
-    "resize-observer-polyfill": "1.5.1"
+    "resize-observer-polyfill": "^1.5.1"
   },
   "peerDependencies": {
     "react": ">=16.9.0",
