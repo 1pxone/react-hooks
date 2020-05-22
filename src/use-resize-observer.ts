@@ -1,4 +1,4 @@
-import { useEffect, useRef, useCallback, useState } from 'react';
+import { useEffect, useRef, useCallback, useState, MutableRefObject } from 'react';
 import ResizeObserver from 'resize-observer-polyfill';
 
 export interface IObservableSize {
@@ -7,23 +7,23 @@ export interface IObservableSize {
 }
 
 export const useResizeObserver = <T extends Element>({
-    onResize
+    onResize,
 }: {
     onResize(size: IObservableSize): void;
-}): React.MutableRefObject<T | undefined> => {
+}): MutableRefObject<T | undefined> => {
     const ref = useRef<T | undefined>();
     const resizeRef = useRef(onResize);
     resizeRef.current = onResize;
     const previous = useRef({
         width: 0,
-        height: 0
+        height: 0,
     });
     useEffect(() => {
         if (typeof ref !== 'object' || ref === null || !(ref.current instanceof Element)) {
             return;
         }
         const element = ref.current;
-        const resizeObserver = new ResizeObserver(entries => {
+        const resizeObserver = new ResizeObserver((entries) => {
             if (!Array.isArray(entries)) {
                 return;
             }
@@ -48,7 +48,7 @@ export const useResizeObserver = <T extends Element>({
 
 export const useObservedSize = <T extends Element>(
     debounceTimeout: number = 0
-): { ref: React.MutableRefObject<T | undefined>; size: IObservableSize } => {
+): { ref: MutableRefObject<T | undefined>; size: IObservableSize } => {
     const [size, setSize] = useState<IObservableSize>({ width: 0, height: 0 });
     const timeoutRef = useRef<number | undefined>();
     const clear = useCallback(() => {

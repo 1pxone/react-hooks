@@ -60,5 +60,3 @@ export const useClipboard = (successResetIntervalMs?: number) => {
 
     return { onCopy, hasCopied };
 };
-
-export default useClipboard;

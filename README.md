@@ -1,25 +1,25 @@
 # React Hooks | 1px.one
 
 Useful React Hooks
+* [`useNetworkStatus`](#network-status-hook) - Hook to detect online/offline network status.
 
-* [`useClipboard`](#clipboard-hook) - Hook to
-* [`useDebounce`](#debounce-hook) - Hook to
-* [`useDelay`](#delay-hook) - Hook to
-* [`useElementHighlight`](#element-highlight-hook) - Hook to
-* [`useFullscreen`](#fullscreen-hook) - Hook to
-* [`useImagePreload`](#image-preload-hook) - Hook to
+* [`usePageVisibility`](#page-visibility-hook) - Hook built on top of visibilityChange API. Helps to detect active tab.
 
-* [`useInterval`](#interval-hook) - Hook to
-* [`useLocalStorage`](#local-storage-hook) - Hook to
-* [`useNetworkInfo`](#network-info-hook) - Hook to
-* [`usePageVisibility`](#page-visibility-hook) - Hook to
-* [`useResizeObserver`](#resize-observer-hook) - Hook to
-* [`useObservedSize`](#resize-observer-hook) - Hook to
-* [`useThrottle`](#throttle-hook) - Hook to
-* [`useWhyDidYouUpdate`](#debug-hook) - Hook to
+* [`useResizeObserver`](#resize-observer-hook) - Hook build on top Resize Observer API. It requires to pass callback to detect size changes of specified Element.
 
-* [`useKeypress`](#keypress-hook) - Hook to
-* [`useKeypressed`](#key-pressed-hook) - Hook to
+* [`useObservedSize`](#resize-observer-hook) - Hook build on top `useResizeObserver` hook. Additionally returns `size` of specified Element. No callback needed.
+
+* [`useFullscreen`](#fullscreen-hook) - Hook built on top of Fullscreen API. Used to present specified Element (and its descendants) in full-screen mode. 
+
+* [`useLocalStorage`](#local-storage-hook) - Hook to set and get localstorage values.
+
+* [`useClipboard`](#clipboard-hook) - Hook to copy text to clipboard.
+
+* [`useElementHighlight`](#element-highlight-hook) - Hook to wrap specified Element with backdrop.
+
+* [`useImagePreload`](#image-preload-hook) - Hook to preload image with loading and error states.
+
+* [`useWhyDidYouUpdate`](#debug-hook) - Hook to log updated props and state inside components and other hooks. Helpful for development.
 
 ## Clipboard hook
 
@@ -61,7 +61,7 @@ Useful React Hooks
 ```javascript
 ```
 
-## Network Info Hook
+## Network Status Hook
 
 ```javascript
 ```
