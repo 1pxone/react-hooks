@@ -9,10 +9,6 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
-      - npm-config/set-registry:
-          registry-prurl: //registry.npmjs.org/
-          scope: '@onepx'
-          auth-token: $NPM_TOKEN
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
@@ -46,6 +42,10 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/repo
+      - npm-config/set-registry:
+          registry-prurl: //registry.npmjs.org/
+          scope: '@onepx'
+          auth-token: $NPM_TOKEN
       - run:
           name: Publish package
           command: npm publish --access public
