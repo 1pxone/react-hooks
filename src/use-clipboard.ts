@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 
 function createTextArea(): HTMLTextAreaElement {
     const textArea: HTMLTextAreaElement = document.createElement('textarea');
@@ -40,25 +40,23 @@ export function copyText(string: string): boolean {
     return result;
 }
 
-export function useClipboard(value: string) {
+export const useClipboard = (successResetIntervalMs?: number) => {
     const [hasCopied, setHasCopied] = useState(false);
 
-    const onCopy = useCallback(() => {
+    const onCopy = (value: string) => {
         const didCopy = copyText(value);
         setHasCopied(didCopy);
-    }, [value]);
+    };
 
     useEffect(() => {
         if (hasCopied) {
             const id = setTimeout(() => {
                 setHasCopied(false);
-            }, 1500);
+            }, successResetIntervalMs || 1500);
 
             return () => clearTimeout(id);
         }
-    }, [hasCopied]);
+    }, [hasCopied, successResetIntervalMs]);
 
-    return { value, onCopy, hasCopied };
-}
-
-export default useClipboard;
+    return { onCopy, hasCopied };
+};
