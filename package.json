@@ -1,6 +1,6 @@
 {
   "name": "@1px.one/react-hooks",
-  "version": "1.0.2",
+  "version": "1.0.1",
   "description": "Helpful react hooks",
   "keywords": [
     "react",
@@ -34,6 +34,16 @@
   "bugs": {
     "url": "https://github.com/1pxone/react-hooks/issues"
   },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
   "dependencies": {
     "resize-observer-polyfill": "^1.5.1"
   },
@@ -54,16 +64,19 @@
     "@babel/plugin-transform-typescript": "^7.6.0",
     "@babel/preset-env": "^7.6.0",
     "@babel/preset-react": "^7.0.0",
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
     "@types/react": "^16.9.23",
     "@types/react-dom": "^16.9.5",
     "babel-jest": "^24.9.0",
     "babel-plugin-add-react-displayname": "^0.0.5",
     "babel-plugin-transform-object-assign": "^6.22.0",
     "babel-plugin-typescript-to-proptypes": "^1.0.0",
+    "husky": "^4.2.5",
     "npx": "^10.2.2",
+    "prettier": "^2.0.5",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
-    "prettier": "^2.0.5",
     "tsc": "^1.20150623.0",
     "tslint": "^5.20.0",
     "typescript": "^3.8.3"
