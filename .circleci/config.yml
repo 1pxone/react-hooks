@@ -7,7 +7,7 @@ jobs:
     docker:
       - image: circleci/node:10.15
 
-    working_directory: ~/repo
+    working_directory: ~/react-hooks
     steps:
       - checkout
       - restore_cache:
@@ -16,6 +16,7 @@ jobs:
             - v1-dependencies-
 
       - run: npm install
+      - run: npm build
 
       - save_cache:
           paths:
@@ -31,18 +32,18 @@ jobs:
 
       # store code coverage
       - persist_to_workspace:
-          root: ~/repo
+          root: ~/react-hooks
           paths: .
 
   deploy:
     docker:
       - image: circleci/node:latest
 
-    working_directory: ~/repo
+    working_directory: ~/react-hooks
 
     steps:
       - attach_workspace:
-          at: ~/repo
+          at: ~/react-hooks/lib
       - npm-config/set-registry:
           registry-prurl: //registry.npmjs.org/
           scope: '@onepx'
