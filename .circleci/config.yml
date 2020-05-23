@@ -43,7 +43,7 @@ jobs:
 
     steps:
       - attach_workspace:
-          at: ~/react-hooks/lib
+          at: ~/react-hooks
       - npm-config/set-registry:
           registry-prurl: //registry.npmjs.org/
           scope: '@onepx'
