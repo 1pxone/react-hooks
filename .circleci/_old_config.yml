@@ -1,0 +1,70 @@
+version: 2.1
+
+orbs:
+  npm-config: cobli/npm-config@1.0.0
+jobs:
+  build:
+    docker:
+      - image: circleci/node:10.15
+
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
+
+      - run: npm install
+      - run: npm build
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+      # run tests!
+      - run: npm test
+
+      # store test results
+      - store_test_results:
+          path: test_results
+
+      # store code coverage
+      - persist_to_workspace:
+          root: ~/repo
+          paths: .
+
+  deploy:
+    docker:
+      - image: circleci/node:latest
+
+    working_directory: ~/repo
+
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - npm-config/set-registry:
+          registry-prurl: //registry.npmjs.org/
+          scope: '@onepx'
+          auth-token: $NPM_TOKEN
+      - run:
+          name: Publish package
+          command: npm publish --access public
+
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - build:
+          filters:
+            tags:
+              only: /.*/
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^v.*/
