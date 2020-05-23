@@ -18,7 +18,7 @@ whitelist: &whitelist
     - README.md
     - tsconfig.json
     - tslint.json
-version: 2
+version: 2.1
 
 orbs:
   npm-config: cobli/npm-config@1.0.0
@@ -84,10 +84,7 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/repo
-      - npm-config/set-registry:
-          registry-prurl: //registry.npmjs.org/
-          scope: '@onepx'
-          auth-token: $NPM_TOKEN
+
       - run:
           name: Write NPM Token to ~/.npmrc
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
@@ -99,6 +96,11 @@ jobs:
       - run:
           name: Write version to package.json
           command: $(yarn bin)/dot-json package.json version ${CIRCLE_TAG:1}
+
+      - npm-config/set-registry:
+          registry-prurl: //registry.npmjs.org/
+          scope: '@onepx'
+          auth-token: $NPM_TOKEN
 
       - run:
           name: Publish to NPM
