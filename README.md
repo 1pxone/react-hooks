@@ -21,47 +21,12 @@ Useful React Hooks
 
 * [`useWhyDidYouUpdate`](#debug-hook) - Hook to log updated props and state inside components and other hooks. Helpful for development.
 
-## Clipboard hook
-
-```javascript
-```
-
-## Debounce Hook
-
-```javascript
-```
-
-## Delay Hook
-
-```javascript
-```
-
-## Element Highlight Hook
-
-```javascript
-```
-
-## Fullscreen Hook
-
-```javascript
-```
-
-## Image preload Hook
-
-```javascript
-```
-
-## Interval Hook
-
-```javascript
-```
-
-## Local Storage Hook
-
-```javascript
-```
-
 ## Network Status Hook
+
+```javascript
+```
+
+## Page Visibility Hook
 
 ```javascript
 ```
@@ -76,27 +41,32 @@ Useful React Hooks
 ```javascript
 ```
 
-## Throttle Hook
+## Fullscreen Hook
 
 ```javascript
 ```
 
-## Page Visibility Hook
+## Local Storage Hook
+
+```javascript
+```
+
+## Clipboard hook
+
+```javascript
+```
+
+## Element Highlight Hook
+
+```javascript
+```
+
+## Image preload Hook
 
 ```javascript
 ```
 
 ## Debug Hook
-
-```javascript
-```
-
-## Keypress Hook
-
-```javascript
-```
-
-## Key Pressed Hook
 
 ```javascript
 ```
