@@ -61,7 +61,7 @@ function SomeComponent() {
 }
 ```
 
-####Page Visibility Hook
+#### Page Visibility Hook
 
 ```javascript
 ...
@@ -83,42 +83,42 @@ function SomeComponent() {
 }
 ```
 
-####Resize Observer Hook
+#### Resize Observer Hook
 
 ```javascript
 ```
 
-####Observed Size Hook
+#### Observed Size Hook
 
 ```javascript
 ```
 
-####Fullscreen Hook
+#### Fullscreen Hook
 
 ```javascript
 ```
 
-####Local Storage Hook
+#### Local Storage Hook
 
 ```javascript
 ```
 
-####Clipboard hook
+#### Clipboard hook
 
 ```javascript
 ```
 
-####Element Highlight Hook
+#### Element Highlight Hook
 
 ```javascript
 ```
 
-####Image preload Hook
+#### Image preload Hook
 
 ```javascript
 ```
 
-####Debug Hook
+#### Debug Hook
 
 ```javascript
 ```
