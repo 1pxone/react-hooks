@@ -1,9 +1,22 @@
 # React Hooks | 1px.one
 
-Useful React Hooks
+Bunch of react hooks mostly built on top of Web APIs
+
+[![npm version](https://img.shields.io/npm/v/@1px.one/react-hooks.svg?style=flat-square)](https://www.npmjs.com/package/@1px.one/react-hooks)
+
+
+### Installation
+    yarn add @1px.one/react-hooks
+    
+  or
+    
+    npm i @1px.one/react-hooks
+
+
+### Description
 * [`useNetworkStatus`](#network-status-hook) - Hook to detect online/offline network status.
 
-* [`usePageVisibility`](#page-visibility-hook) - Hook built on top of visibilityChange API. Helps to detect active tab.
+* [`usePageVisibility`](#page-visibility-hook) - Hook built on top of Page Visibility API. Helps to detect active tab.
 
 * [`useResizeObserver`](#resize-observer-hook) - Hook build on top Resize Observer API. It requires to pass callback to detect size changes of specified Element.
 
@@ -21,52 +34,91 @@ Useful React Hooks
 
 * [`useWhyDidYouUpdate`](#debug-hook) - Hook to log updated props and state inside components and other hooks. Helpful for development.
 
-## Network Status Hook
+
+### Demo
+
+Here's a [Demo](https://1pxone.github.io/react-hooks).
+
+#### Network Status Hook
+
+```javascript
+...
+
+import { useNetworkStatus } from '@1px.one/react-hooks';
+
+function SomeComponent() {
+    const online = useNetworkStatus();
+
+    useEffect(() => {
+        if (!online) {
+            // save form to localstorage
+        } else {
+            // restore form from localstorage
+        }
+    }, [online]);
+
+    return online ? <span>Connected</span> : <span>Connection lost</span>;
+}
+```
+
+####Page Visibility Hook
+
+```javascript
+...
+
+import { usePageVisibility } from '@1px.one/react-hooks';
+
+function SomeComponent() {
+    const isVisible = usePageVisibility();
+
+    useEffect(() => {
+        if (!isVisible) {
+            // stop playing video
+        } else {
+            // continue playing video
+        }
+    }, [isVisible]);
+
+    return isVisible ? <span>Playing</span> : <span>Paused</span>;
+}
+```
+
+####Resize Observer Hook
 
 ```javascript
 ```
 
-## Page Visibility Hook
+####Observed Size Hook
 
 ```javascript
 ```
 
-## Resize Observer Hook
+####Fullscreen Hook
 
 ```javascript
 ```
 
-## Observed Size Hook
+####Local Storage Hook
 
 ```javascript
 ```
 
-## Fullscreen Hook
+####Clipboard hook
 
 ```javascript
 ```
 
-## Local Storage Hook
+####Element Highlight Hook
 
 ```javascript
 ```
 
-## Clipboard hook
+####Image preload Hook
 
 ```javascript
 ```
 
-## Element Highlight Hook
-
-```javascript
-```
-
-## Image preload Hook
-
-```javascript
-```
-
-## Debug Hook
+####Debug Hook
 
 ```javascript
 ```
