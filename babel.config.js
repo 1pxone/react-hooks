@@ -1,4 +1,5 @@
-module.exports = function() {
+module.exports = function(api) {
+    api.cache(true)
     var babelPlugins = [
         '@babel/plugin-transform-runtime',
         [

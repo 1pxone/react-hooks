@@ -5,3 +5,4 @@ node_modules
 __coverage__
 index.d.ts
 npm-debug.log
+.next

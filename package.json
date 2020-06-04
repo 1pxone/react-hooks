@@ -30,7 +30,10 @@
   "scripts": {
     "build": "npx tsc && npx babel ./src --out-dir lib",
     "test": "echo \"No tests to execute\" && exit 0",
-    "prebuild": "rimraf ./dist"
+    "prebuild": "rimraf ./dist",
+    "static-dev": "next",
+    "static-build": "next build",
+    "static-start": "next start"
   },
   "bugs": {
     "url": "https://github.com/1pxone/react-hooks/issues"
@@ -46,6 +49,7 @@
     }
   },
   "dependencies": {
+    "core-js": "^3.6.5",
     "resize-observer-polyfill": "^1.5.1"
   },
   "peerDependencies": {
@@ -67,18 +71,20 @@
     "@babel/preset-react": "^7.0.0",
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
-    "dot-json": "^1.2.0",
+    "@types/node": "^14.0.9",
     "@types/react": "^16.9.23",
     "@types/react-dom": "^16.9.5",
     "babel-jest": "^24.9.0",
     "babel-plugin-add-react-displayname": "^0.0.5",
     "babel-plugin-transform-object-assign": "^6.22.0",
     "babel-plugin-typescript-to-proptypes": "^1.0.0",
+    "dot-json": "^1.2.0",
     "husky": "^4.2.5",
+    "next": "^9.4.4",
     "npx": "^10.2.2",
     "prettier": "^2.0.5",
-    "react": "^16.13.0",
-    "react-dom": "^16.13.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "rimraf": "^3.0.2",
     "tsc": "^1.20150623.0",
     "tslint": "^5.20.0",

@@ -11,3 +11,4 @@ tslint.json
 tsconfig.json
 tsconfig.src.json
 yarn.lock
+.next
