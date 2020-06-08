@@ -101,6 +101,33 @@ function SomeComponent() {
 #### Local Storage Hook
 
 ```javascript
+...
+
+import { useLocalStorage } from '@1px.one/react-hooks';
+
+function SomeComponent() {
+    const [value, setValue] = useLocalStorage('lastSubmit'); // store under the 'lastSubmit' key in LS
+
+    const onSubmit = () => {
+        const submitPayload = {
+            user: 'John Doe',
+            items: ['1', {foo: 'bar'}, 'baz'],
+            date: new Date().getUTCDate()
+        }       
+        setValue(submitPayload)
+    }; 
+  
+    const status = value 
+        ?   <span>{value.user} sumbited at {value.date}</span>
+        :   <span>Not sumbited yet!</span>;
+
+    return (
+        <>
+            <button onClick={onSubmit}>Sumbit</button>
+            {status}
+        </>
+    );
+}
 ```
 
 #### Clipboard hook
