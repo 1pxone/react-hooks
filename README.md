@@ -20,11 +20,13 @@ Bunch of react hooks mostly built on top of Web APIs
 
 * [`useResizeObserver`](#resize-observer-hook) - Hook build on top Resize Observer API. It requires to pass callback to detect size changes of specified Element.
 
-* [`useObservedSize`](#resize-observer-hook) - Hook build on top `useResizeObserver` hook. Additionally returns `size` of specified Element. No callback needed.
+* [`useObservedSize`](#observed-size-hook) - Hook build on top `useResizeObserver` hook. Additionally returns `size` of specified Element. No callback needed.
 
 * [`useFullscreen`](#fullscreen-hook) - Hook built on top of Fullscreen API. Used to present specified Element (and its descendants) in full-screen mode. 
 
 * [`useLocalStorage`](#local-storage-hook) - Hook to set and get localstorage values.
+
+* [`useDisclosure`](#disclosure-hook) - Hook to set toggle opened/closed state with additional callbacks.
 
 * [`useClipboard`](#clipboard-hook) - Hook to copy text to clipboard.
 
@@ -118,13 +120,44 @@ function SomeComponent() {
     }; 
   
     const status = value 
-        ?   <span>{value.user} sumbited at {value.date}</span>
-        :   <span>Not sumbited yet!</span>;
+        ?   <span>{value.user} submited at {value.date}</span>
+        :   <span>Not submited yet!</span>;
 
     return (
         <>
-            <button onClick={onSubmit}>Sumbit</button>
+            <button onClick={onSubmit}>Submit</button>
             {status}
+        </>
+    );
+}
+```
+
+#### Disclosure hook
+
+```javascript
+...
+
+import { useDisclosure } from '@1px.one/react-hooks';
+
+function SomeComponent() {
+    const onOpenCb = () => {
+       console.log('content opened')
+   }; 
+
+    const onCloseCb = () => {
+        console.log('content closed')
+    }; 
+
+    const { isOpen, open, close } = useDisclosure(false, onOpenCb, onCloseCb);
+  
+    const content = isOpen 
+        ?   <span>Hello world!</span>
+        :   null;
+
+    return (
+        <>
+            <button onClick={isOpen ? close : open}>toggle content</button>
+            {content}
         </>
     );
 }
@@ -149,3 +182,6 @@ function SomeComponent() {
 
 ```javascript
 ```
+
+### TODO
+* Add SSR support
