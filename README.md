@@ -181,6 +181,27 @@ function SomeComponent() {
 #### Debug Hook
 
 ```javascript
+...
+
+import { useWhyDidYouUpdate } from '@1px.one/react-hooks';
+
+function SomeComponent(props) {
+    // This hook will show in console difference between props on each render.
+    // It helps to debug complicated components.
+    // This hook supports nested objects compare. Use it only in development mode.
+
+    useWhyDidYouUpdate(props, 'my complicated component to debug'); 
+
+    // also you can specify console prefix to identify current hook usage 
+
+   
+    // For example if props.name changed it will log:
+    // [why-did-you-update] my complicated component to debug {name: { from: 'Jim', to: 'Joe' }}
+        
+    return (
+        ...
+    );
+}
 ```
 
 ### TODO
