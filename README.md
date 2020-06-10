@@ -98,6 +98,26 @@ function SomeComponent() {
 #### Fullscreen Hook
 
 ```javascript
+...
+
+import { useFullScreen } from '@1px.one/react-hooks';
+
+function SomeComponent() {
+    const playerElement = useRef<HTMLVideoElement>(null);
+
+    const { open, close, toggleFullScreen, isFullScreen } = useFullScreen({ element: playerElement });
+    
+    return (
+        <>
+            <button onClick={open}>Submit</button>
+            <video poster="video/preview.jpg" ref={playerElement}>
+                <source src="video/cats.ogv" type='video/ogg; codecs="theora, vorbis"'>
+                <source src="video/cats.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+                <source src="video/cats.webm" type='video/webm; codecs="vp8, vorbis"'>
+            </video>
+        </>
+    );
+}
 ```
 
 #### Local Storage Hook
