@@ -109,7 +109,7 @@ function SomeComponent() {
     
     return (
         <>
-            <button onClick={open}>Submit</button>
+            <button onClick={toggleFullScreen}>Toggle fullscreen</button>
             <video poster="video/preview.jpg" ref={playerElement}>
                 <source src="video/cats.ogv" type='video/ogg; codecs="theora, vorbis"'>
                 <source src="video/cats.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
@@ -226,3 +226,4 @@ function SomeComponent(props) {
 
 ### TODO
 * Add SSR support
+* Tests
