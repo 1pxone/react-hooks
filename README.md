@@ -226,3 +226,4 @@ function SomeComponent(props) {
 
 ### TODO
 * Add SSR support
+* Tests
