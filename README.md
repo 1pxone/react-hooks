@@ -196,6 +196,32 @@ function SomeComponent() {
 #### Image preload Hook
 
 ```javascript
+...
+
+import { useImagePreload } from '@1px.one/react-hooks';
+
+const imgSrc = 'https://example.com/static/dog.jpg';
+const imgPlaceholder = 'https://example.com/static/placeholder.jpg'; // optionally
+
+
+export const SomeComponent = () => {
+    const { source, loading, error } = useImagePreload(imgSrc, imgPlaceholder);
+
+
+    if (loading) {
+        return (
+            <span>Image loading...</span>
+        );
+    } else if (error) {
+        return (
+            <span>Error occured</span>
+        );
+    } else {
+        return  (
+            <img src={source} alt="dog"/>
+        );
+    }
+}
 ```
 
 #### Debug Hook
