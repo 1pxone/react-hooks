@@ -253,3 +253,5 @@ function SomeComponent(props) {
 ### TODO
 * Add SSR support
 * Tests
+* Add useAccelerometer
+* Add useParallax
