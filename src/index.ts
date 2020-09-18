@@ -1,5 +1,5 @@
 import { useClipboard } from './use-clipboard';
-import { useElementFocusHighLight } from './use-element-highlight';
+import { useElementHighLight } from './use-element-highlight';
 import { useFullScreen } from './use-fullscreen';
 import { useImagePreload } from './use-image-preload';
 import { useLocalStorage } from './use-local-storage';
@@ -12,7 +12,7 @@ import { useDisclosure } from './use-disclosure';
 
 export {
     useClipboard,
-    useElementFocusHighLight,
+    useElementHighLight,
     useFullScreen,
     useImagePreload,
     useLocalStorage,

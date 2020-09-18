@@ -19,37 +19,44 @@ function unselect(textArea: HTMLTextAreaElement): void {
     textArea.blur();
 }
 
-function safelyExecCommand(command: string): boolean {
+function execCopy(): boolean {
     let result: boolean;
     try {
-        result = document.execCommand(command);
+        result = document.execCommand('copy');
     } catch (error) {
         result = false;
     }
     return result;
 }
 
-export function copyText(string: string): boolean {
+function copyText(string: string): boolean {
     const textArea: HTMLTextAreaElement = createTextArea();
     textArea.value = string;
     document.body.appendChild(textArea);
     select(textArea);
-    const result: boolean = safelyExecCommand('copy');
+    const result: boolean = execCopy();
     unselect(textArea);
     document.body.removeChild(textArea);
     return result;
 }
 
-export const useClipboard = (successResetIntervalMs?: number) => {
+export const useClipboard = (
+    onCopyCb?: () => void,
+    successResetIntervalMs: number = 500,
+) => {
     const [hasCopied, setHasCopied] = useState(false);
 
-    const onCopy = (value: string) => {
+    const copy = (value: string) => {
         const didCopy = copyText(value);
         setHasCopied(didCopy);
+
     };
 
     useEffect(() => {
         if (hasCopied) {
+            if (typeof onCopyCb === 'function') {
+                onCopyCb();
+            }
             const id = setTimeout(() => {
                 setHasCopied(false);
             }, successResetIntervalMs || 1500);
@@ -58,5 +65,5 @@ export const useClipboard = (successResetIntervalMs?: number) => {
         }
     }, [hasCopied, successResetIntervalMs]);
 
-    return { onCopy, hasCopied };
+    return { copy, hasCopied };
 };
