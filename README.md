@@ -1,6 +1,6 @@
 # React Hooks | 1px.one
 
-Bunch of react hooks mostly built on top of Web APIs
+Bunch of React hooks mostly built on top of Web APIs
 
 [![npm version](https://img.shields.io/npm/v/@1px.one/react-hooks.svg?style=flat-square)](https://www.npmjs.com/package/@1px.one/react-hooks)
 
@@ -36,10 +36,6 @@ Bunch of react hooks mostly built on top of Web APIs
 
 * [`useWhyDidYouUpdate`](#debug-hook) - Hook to log updated props and state inside components and other hooks. Helpful for development.
 
-
-### Demo
-
-Here's a [Demo](https://1pxone.github.io/react-hooks).
 
 #### Network Status Hook
 
@@ -87,12 +83,92 @@ function SomeComponent() {
 
 #### Resize Observer Hook
 
+This hook built on top of [ResizeObserver API](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver)
+
 ```javascript
+...
+
+import { useResizeObserver } from '@1px.one/react-hooks';
+
+function SomeComponent() {
+	const [wrapperHeight, setHeight] = useState<number | undefined>();
+	const ref = useResizeObserver<HTMLDivElement>({
+		onResize: ({ height, width }) => setHeight(height)
+	});
+	const [blocks, addBlock] = useState([]);
+
+	const onAdd = () => {
+		addBlock([...blocks, (Math.random() * 100 + 50).toFixed(0) + "px"]);
+	};
+	const onDelete = (index) => {
+		addBlock(blocks.filter((_, i) => index !== i));
+	};
+	return (
+		<>
+			<p>Height: {wrapperHeight}</p>
+			<button onClick={onAdd}>Add +</button>
+			<div ref={ref}>
+				{blocks.map((block, index) => (
+					<div
+						style={{
+							height: block,
+							backgroundColor: index % 2 ? "gray" : "lightgray"
+						}}>
+						Block height: {block}
+						<br />
+						<button onClick={() => onDelete(index)}>Delete</button>
+					</div>
+				))}
+			</div>
+		</>
+	);
+}
+
 ```
 
 #### Observed Size Hook
 
+This hook built on top of [ResizeObserver API](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver)
+and uses `useResizeObserver` hook inside to automate getting `size` of specified element.
+Optionally, you can path `deboubceMs` argument to hook, it will slowdown changing `size` value if needed, but not
+effects on visual element size changing. Could be useful to prevent expensive re-rendering.
+
+
 ```javascript
+...
+
+import { useResizeObserver } from '@1px.one/react-hooks';
+
+function SomeComponent() {
+	const [ref, size] = useObservedSize<HTMLDivElement>(100);
+	const [blocks, addBlock] = useState([]);
+
+	const onAdd = () => {
+		addBlock([...blocks, (Math.random() * 100 + 50).toFixed(0) + "px"]);
+	};
+	const onDelete = (index) => {
+		addBlock(blocks.filter((_, i) => index !== i));
+	};
+	return (
+		<>
+			<p>Height: {size.heigth}</p>
+			<button onClick={onAdd}>Add +</button>
+			<div ref={ref}>
+				{blocks.map((block, index) => (
+					<div
+						style={{
+							height: block,
+							backgroundColor: index % 2 ? "gray" : "lightgray"
+						}}>
+						Block height: {block}
+						<br />
+						<button onClick={() => onDelete(index)}>Delete</button>
+					</div>
+				))}
+			</div>
+		</>
+	);
+}
 ```
 
 #### Fullscreen Hook
@@ -186,11 +262,98 @@ function SomeComponent() {
 #### Clipboard hook
 
 ```javascript
+...
+
+import { useClipboard } from '@1px.one/react-hooks';
+
+function SomeComponent() {
+    const onCopyCb = () => {
+       console.log('Copied');
+    }; 
+
+    // optional successResetIntervalMs parameter 
+    // to set hasCopied to false in timeout
+    // defaults = 500 ms
+    const { copy, hasCopied } = useClipboard(onCopyCb, 1000);
+    
+    const onCopyClick = () => {
+        copy('Hello world!') // any text
+    }
+
+    useEffect(()=>{
+        if (hasCopied) {
+            alert('Successfully copied!')
+        }       
+    },[hasCopied]);
+
+    return (
+        <button onClick={onCopyClick}>Copy text</button>
+    );
+}
 ```
 
 #### Element Highlight Hook
 
+Could be used to build onboarding scenario or learning interactive guide.
+This hook renders `Backdrop` to highlight selected element and provides callbacks
+to set elements by calling `setElement` returned second from hook.
+
+It allows to set additional props to `Backdrop` but also supports all default `HTMLDivElement` props.
+
+You can configure `Backdrop` view by setting
+
+`backdropColor` (defaults: `rgba(0,0,0,0.75)`),
+
+ `zIndex` (defaults: `999`) and 
+ 
+ `overlay` (defaults: `false`).
+ 
+If `overlay` set to `true` it will render overlaying `<div />` to block user iteration with selected element.
+
+
+@TODO: Smooth animation, resizing, highlighting dynamic elements
+
 ```javascript
+...
+
+import { useElementHighLight } from '@1px.one/react-hooks';
+
+function SomeComponent() {
+	const [value, setValue] = useState("");
+	const inputRef = React.useRef();
+
+	const [currentElement, setElement, Backdrop] = useElementHighLight<
+		HTMLDivElement,
+		{ someExtraPropsToBackDrop: string }
+	>({ overlay: false, backdropColor: "rgba(0,0,0,0.75)", zIndex: 999 });
+
+	React.useEffect(() => {
+		setElement(inputRef.current);
+	}, [inputRef]);
+
+	const onChange = (e) => {
+		setValue(e.target.value);
+	};
+
+	useEffect(() => {
+		if (value.length > 3) {
+			setElement(null);
+		}
+	}, [value]);
+
+	const onBackdropClick = () => {
+		if (inputRef.current) {
+			inputRef.current.focus();
+		}
+	};
+
+	return (
+		<>
+			<Backdrop onClick={onBackdropClick}someExtraPropsToBackDrop={'foo'} />
+			<input value={value} onChange={onChange} ref={inputRef} />
+		</>
+	);
+}
 ```
 
 #### Image preload Hook
@@ -252,6 +415,7 @@ function SomeComponent(props) {
 
 ### TODO
 * Add SSR support
+* Add demo
 * Tests
 * Add useAccelerometer
 * Add useParallax

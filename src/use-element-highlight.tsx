@@ -4,10 +4,13 @@ import { useState } from 'react';
 import { Dispatch } from 'react';
 import { SetStateAction } from 'react';
 
-export function useElementFocusHighLight<T extends HTMLElement, P extends {}>({
+export function useElementHighLight<
+    T extends HTMLElement,
+    P extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>
+>({
     backdropColor = 'rgba(0,0,0,0.75)',
-    zIndex = 999999,
-    overlay = false
+    zIndex = 999,
+    overlay = false,
 }: {
     backdropColor?: string;
     zIndex?: number;
@@ -22,33 +25,33 @@ export function useElementFocusHighLight<T extends HTMLElement, P extends {}>({
         const commonStyles: React.CSSProperties = {
             zIndex,
             backgroundColor: backdropColor,
-            position: 'absolute'
+            position: 'absolute',
         };
         const topDivStyle: React.CSSProperties = {
             ...commonStyles,
             top: 0,
             width: '100%',
-            height: rect.top
+            height: rect.top,
         };
         const bottomDivStyle: React.CSSProperties = {
             ...commonStyles,
             bottom: 0,
             width: '100%',
-            height: window.innerHeight - rect.bottom
+            height: window.innerHeight - rect.bottom,
         };
         const leftDivStyle: React.CSSProperties = {
             ...commonStyles,
             left: 0,
             top: rect.top,
             width: rect.left,
-            height: rect.height
+            height: rect.height,
         };
         const rightDivStyle: React.CSSProperties = {
             ...commonStyles,
             right: 0,
             top: rect.top,
             width: window.innerWidth - rect.right,
-            height: rect.height
+            height: rect.height,
         };
         const renderOverlay = (props: P) => {
             if (overlay) {
@@ -57,7 +60,7 @@ export function useElementFocusHighLight<T extends HTMLElement, P extends {}>({
                     height: '100%',
                     width: '100%',
                     position: 'absolute',
-                    top: 0
+                    top: 0,
                 };
                 return <div {...props} style={wrapperDivStyle} />;
             } else {
