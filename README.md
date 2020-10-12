@@ -139,35 +139,37 @@ effects on visual element size changing. Could be useful to prevent expensive re
 import { useResizeObserver } from '@1px.one/react-hooks';
 
 function SomeComponent() {
-	const [ref, size] = useObservedSize<HTMLDivElement>(100);
-	const [blocks, addBlock] = useState([]);
+    const [ref, size] = useObservedSize<HTMLDivElement>(100);
+    const [blocks, addBlock] = useState([]);
 
-	const onAdd = () => {
-		addBlock([...blocks, (Math.random() * 100 + 50).toFixed(0) + "px"]);
-	};
-	const onDelete = (index) => {
-		addBlock(blocks.filter((_, i) => index !== i));
-	};
-	return (
-		<>
-			<p>Height: {size.heigth}</p>
-			<button onClick={onAdd}>Add +</button>
-			<div ref={ref}>
-				{blocks.map((block, index) => (
-					<div
-						style={{
-							height: block,
-							backgroundColor: index % 2 ? "gray" : "lightgray"
-						}}>
-						Block height: {block}
-						<br />
-						<button onClick={() => onDelete(index)}>Delete</button>
-					</div>
-				))}
-			</div>
-		</>
-	);
+    const onAdd = () => {
+        addBlock([...blocks, (Math.random() * 100 + 50).toFixed(0) + 'px']);
+    };
+    const onDelete = (index) => {
+        addBlock(blocks.filter((_, i) => index !== i));
+    };
+    return (
+        <>
+            <p>Height: {size.heigth}</p>
+            <button onClick={onAdd}>Add +</button>
+            <div ref={ref}>
+                {blocks.map((block, index) => (
+                    <div
+                        style={{
+                            height: block,
+                            backgroundColor: index % 2 ? 'gray' : 'lightgray',
+                        }}
+                    >
+                        Block height: {block}
+                        <br />
+                        <button onClick={() => onDelete(index)}>Delete</button>
+                    </div>
+                ))}
+            </div>
+        </>
+    );
 }
+
 ```
 
 # Fullscreen Hook
