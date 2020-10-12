@@ -386,7 +386,7 @@ export const SomeComponent = () => {
 
 # Idle Timeout Hook
 
-This component will fire onClose callback after 5 seconds of user inactivity.
+This component will fire `onClose` callback after 5 seconds of user inactivity.
 It listens to `load`, `mousemove`, `mousedown`, `click`, `scroll`, `keypress`, `touchcancel`, 
 `touchend`, `touchmove`, `touchstart` events.
 
