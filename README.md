@@ -389,9 +389,10 @@ It listens to `load`, `mousemove`, `mousedown`, `click`, `scroll`, `keypress`, `
 `touchend`, `touchmove`, `touchstart` events.
 
 ```javascript
+...
+
 import { useIdleTimeOut } from '@1px.one/react-hooks';
 
-// 
 export const SomeComponent = ({ onClose, isOpen }) => {
     useIdleTimeOut(5000, onClose);
 
