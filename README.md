@@ -33,6 +33,8 @@ Bunch of React hooks mostly built on top of Web APIs
 
 * [`useImagePreload`](#image-preload-hook) - Hook to preload image with loading and error states.
 
+* [`useIdleTimeout`](#idle-timeout-hook) - Hook to call function after N-seconds of user inactivity.
+
 * [`useWhyDidYouUpdate`](#debug-hook) - Hook to log updated props and state inside components and other hooks. Helpful for development.
 
 
