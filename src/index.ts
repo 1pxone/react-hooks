@@ -9,11 +9,13 @@ import { useResizeObserver } from './use-resize-observer';
 import { useWhyDidYouUpdate, getObjectsDiff } from './use-why-did-you-update';
 import { useObservedSize } from './use-resize-observer';
 import { useDisclosure } from './use-disclosure';
+import { useIdleTimeOut } from './use-idle-timeout';
 
 export {
     useClipboard,
     useElementHighLight,
     useFullScreen,
+    useIdleTimeOut,
     useImagePreload,
     useLocalStorage,
     useNetworkStatus,
